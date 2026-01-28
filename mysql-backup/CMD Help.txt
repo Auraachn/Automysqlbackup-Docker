@@ -1,0 +1,42 @@
+Build & run sekaligus
+docker compose -f docker-compose.mysql-backup-test.yml up -d --build
+
+docker compose -f docker-compose.mysql-backup-test.yml down
+docker compose -f docker-compose.mysql-backup-test.yml up -d --build
+
+
+
+
+Stop container
+
+remove network = docker compose -f docker-compose.mysql-backup-test.yml down
+
+stop aja = docker compose -f docker-compose.mysql-backup-test.yml stop
+
+start after stop
+docker compose -f docker-compose.mysql-backup-test.yml start
+
+
+Pause
+docker compose -f docker-compose.mysql-backup-test.yml pause
+
+Unpause
+docker compose -f docker-compose.mysql-backup-test.yml unpause
+
+log container
+docker logs -f mysql-backup
+
+Cek Status 
+docker ps
+
+Masuk ke container (cek file log / manual test)
+docker exec -it mysql-backup sh
+
+	Lalu cek log:
+
+	cat /backups/backup.log
+	cat /backups/retention.log
+
+drop dan build lagi
+docker compose -f docker-compose.mysql-backup-test.yml up -d --build
+
